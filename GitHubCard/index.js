@@ -9,10 +9,12 @@ axios.get('https://api.github.com/users/mmthatch12')
   .then(data => {
     console.log('the card?:', data.data)
     const theCard = data.data
-    theCard.forEach(cardy => {
-      const element = createCard(cardy)
-      cards.appendChild(element)
-    })
+    const cardtofunct = createCard(theCard)
+    cards.appendChild(cardtofunct)
+    // theCard.forEach(cardy => {
+    //   const element = createCard(cardy)
+    //   cards.appendChild(element)
+    // })
   })
   .catch(error => {
     console.log('This is not working', error)
