@@ -81,4 +81,8 @@ function createCard(thing){
   cardInfo.appendChild(cardFollowing)
   cardInfo.appendChild(cardBio)
   cardProf.appendChild(cardA)
+
+  //Set Classes
+  card.classList.add('card')
+  cardInfo.classList.add('name')
 }
