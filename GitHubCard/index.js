@@ -1,7 +1,24 @@
+const cards = document.querySelector('.cards')
+
+
 /* Step 1: using axios, send a GET request to the following URL 
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+axios.get('https://api.github.com/users/mmthatch12')
+  .then(data => {
+    console.log('the card?:', data.data)
+    const theCard = data.data
+    const cardtofunct = createCard(theCard)
+    cards.appendChild(cardtofunct)
+    // theCard.forEach(cardy => {
+    //   const element = createCard(cardy)
+    //   cards.appendChild(element)
+    // })
+  })
+  .catch(error => {
+    console.log('This is not working', error)
+  })
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -24,8 +41,29 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = [
+  'tetondan',
+  'dustinmyers',
+  'justsml',
+  'luishrd',
+  'bigknell',
+];
 
+followersArray.forEach(data => {axios.get(`https://api.github.com/users/${data}`)
+.then(data => {
+  console.log('the card?:', data.data)
+  const theCard = data.data
+  const cardtofunct = createCard(theCard)
+  cards.appendChild(cardtofunct)
+  // theCard.forEach(cardy => {
+  //   const element = createCard(cardy)
+  //   cards.appendChild(element)
+  // })
+})
+.catch(error => {
+  console.log('This is not working', error)
+})
+})
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
 
@@ -53,3 +91,50 @@ const followersArray = [];
   luishrd
   bigknell
 */
+
+function createCard(object){
+  //create elements
+  let card = document.createElement('div')
+  let cardImg = document.createElement('img')
+  let cardInfo = document.createElement('div')
+  let cardH3 = document.createElement('h3')
+  let cardUser = document.createElement('p')
+  let cardLocal = document.createElement('p')
+  let cardProf = document.createElement('p')
+  let cardA = document.createElement('a')
+  let cardFollowers = document.createElement('p')
+  let cardFollowing = document.createElement('p')
+  let cardBio = document.createElement('p')
+
+  //Set Classes
+  card.classList.add('card')
+  cardInfo.classList.add('card-info')
+  cardH3.classList.add('name')
+  cardUser.classList.add('username')
+
+  //connect the elements
+  card.appendChild(cardImg)
+  card.appendChild(cardInfo)
+  cardInfo.appendChild(cardH3)
+  cardInfo.appendChild(cardUser)
+  cardInfo.appendChild(cardLocal)
+  cardInfo.appendChild(cardProf)
+  cardInfo.appendChild(cardFollowers)
+  cardInfo.appendChild(cardFollowing)
+  cardInfo.appendChild(cardBio)
+  cardProf.appendChild(cardA)
+
+  //set the content
+  cardImg.src = object.avatar_url
+  cardH3.textContent = `${object.name}`
+  cardUser.textContent = `${object.login}`
+  cardLocal.textContent = `Location: ${object.location}`
+  //cardProf.textContent = `Profile:`
+  cardA.href = object.html_url
+  cardA.textContent = `Profile: ${object.html_url}`
+  cardFollowers.textContent = `Followers: ${object.followers}`
+  cardFollowing.textContent = `Following: ${object.following}`
+  cardBio.textContent = `Bio: ${object.bio}`
+
+  return card
+}
