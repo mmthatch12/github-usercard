@@ -104,10 +104,10 @@ function createCard(object){
   cardProf.appendChild(cardA)
 
   //set the content
-  // cardImg.src = 
-  // cardH3.textContent = 
+  cardImg.src = object.avatar_url
+  cardH3.textContent = object.name
   // cardUser.textContent = 
-  cardLocal.textContent = `Location:`
+  cardLocal.textContent = `Location: ${object.location}`
   cardProf.textContent = `Profile:`
   // cardA.href = 
   // cardA.textContent = 
