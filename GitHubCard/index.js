@@ -56,7 +56,7 @@ const followersArray = [];
   bigknell
 */
 
-function createCard(thing){
+function createCard(object){
   //create elements
   let card = document.createElement('div')
   let cardImg = document.createElement('img')
@@ -84,5 +84,9 @@ function createCard(thing){
 
   //Set Classes
   card.classList.add('card')
-  cardInfo.classList.add('name')
+  cardInfo.classList.add('card-info')
+  cardH3.classList.add('name')
+  cardUser.classList.add('username')
+
+  return card
 }
