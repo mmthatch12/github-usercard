@@ -1,9 +1,22 @@
+const cards = document.querySelector('.cards')
+
+
 /* Step 1: using axios, send a GET request to the following URL 
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
 axios.get('https://api.github.com/users/mmthatch12')
-  
+  .then(data => {
+    console.log('the card?:', data.data)
+    const theCard = data.data
+    theCard.forEach(cardy => {
+      const element = createCard(cardy)
+      cards.appendChild(element)
+    })
+  })
+  .catch(error => {
+    console.log('This is not working', error)
+  })
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -70,6 +83,12 @@ function createCard(object){
   let cardFollowing = document.createElement('p')
   let cardBio = document.createElement('p')
 
+  //Set Classes
+  card.classList.add('card')
+  cardInfo.classList.add('card-info')
+  cardH3.classList.add('name')
+  cardUser.classList.add('username')
+
   //connect the elements
   card.appendChild(cardImg)
   card.appendChild(cardInfo)
@@ -82,11 +101,8 @@ function createCard(object){
   cardInfo.appendChild(cardBio)
   cardProf.appendChild(cardA)
 
-  //Set Classes
-  card.classList.add('card')
-  cardInfo.classList.add('card-info')
-  cardH3.classList.add('name')
-  cardUser.classList.add('username')
+  //set the content
+
 
   return card
 }
