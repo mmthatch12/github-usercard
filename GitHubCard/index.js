@@ -57,6 +57,7 @@ const followersArray = [];
 */
 
 function createCard(thing){
+  //create elements
   let card = document.createElement('div')
   let cardImg = document.createElement('img')
   let cardInfo = document.createElement('div')
@@ -69,4 +70,13 @@ function createCard(thing){
   let cardFollowing = document.createElement('p')
   let cardBio = document.createElement('p')
 
+  //connect the elements
+  card.appendChild(cardImg)
+  card.appendChild(cardInfo)
+  cardInfo.appendChild(cardH3)
+  cardInfo.appendChild(cardH3)
+  cardInfo.appendChild(cardH3)
+  cardInfo.appendChild(cardH3)
+  cardInfo.appendChild(cardH3)
+  cardInfo.appendChild(cardH3)
 }
