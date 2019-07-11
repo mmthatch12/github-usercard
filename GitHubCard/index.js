@@ -55,3 +55,11 @@ const followersArray = [];
   luishrd
   bigknell
 */
+
+function createCard(thing){
+  let card = document.createElement('div')
+  let card = document.createElement('div')
+  let card = document.createElement('div')
+  let card = document.createElement('div')
+  let card = document.createElement('div')
+}
