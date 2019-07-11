@@ -58,8 +58,15 @@ const followersArray = [];
 
 function createCard(thing){
   let card = document.createElement('div')
-  let card = document.createElement('div')
-  let card = document.createElement('div')
-  let card = document.createElement('div')
-  let card = document.createElement('div')
+  let cardImg = document.createElement('img')
+  let cardInfo = document.createElement('div')
+  let cardH3 = document.createElement('h3')
+  let cardUser = document.createElement('p')
+  let cardLocal = document.createElement('p')
+  let cardProf = document.createElement('p')
+  let cardA = document.createElement('a')
+  let cardFollowers = document.createElement('p')
+  let cardFollowing = document.createElement('p')
+  let cardBio = document.createElement('p')
+
 }
